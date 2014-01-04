@@ -9,8 +9,8 @@
 #include <cstring>
 #include <sstream>
 
-#include "./basictypes.h"
-#include "./flags.h"
+#include "base/basictypes.h"
+#include "base/flags.h"
 
 //
 // Optional message capabilities
@@ -161,8 +161,12 @@ void SetLogFilterPrefix(const char* filter);
 
 // Sets the common items you want to be prepended to each log message.
 // process and thread IDs default to on, the timestamp defaults to on.
-void SetLogItems(bool enable_process_id, bool enable_thread_id, bool enable_date,
-                 bool enable_timestamp, bool enable_tickcount);
+
+// xujian: bind the process_id and thread_id.
+void SetLogItems(bool enable_process_and_thread_ids,
+                 bool enable_date,
+                 bool enable_timestamp,
+                 bool enable_tickcount);
 
 // Sets the Log Assert Handler that will be used to notify of check failures.
 // The default handler shows a dialog box and then terminate the process,
